@@ -14,7 +14,8 @@ For more informations, see .github/workflows/main.yml
 Note:
 Unfortunately, the image is 7GB big and therefore quite heavy.
 I was not able to reduce the size significantly.
-Also, the model is well over 200mb big, therefore, I will not upload it to moodle.
+- Also, the model is well over 200mb big, therefore it is uploaded using `git lfs`. Please be mindful of that.
+
 
 Link to azure website:
 https://ds21m011-sentiment-analysis.azurewebsites.net
