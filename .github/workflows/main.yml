@@ -30,7 +30,7 @@ jobs:
       with:
        push: true
        tags: index.docker.io/nkhoss/streamlit_app_ex4:${{ github.sha }}
-       file: ./Dockerfile
+       file: ./streamlit/Dockerfile
        
     - name: Azure WebApp
       uses: Azure/webapps-deploy@v2.2.5
