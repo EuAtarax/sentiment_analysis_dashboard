@@ -1,0 +1,20 @@
+repo: nkhoss/streamlit_app_ex4
+A simple streamlit app utilizing a Text classification BERT model from flair package.
+It is embedded in a streamlit app and is able to analyze the sentiment of a given text.
+Text input has to be in English (v1.0), can be multiple sentences and will be analyzed after pressing the button.
+Sentiment can be either Positive, Negative or Neutral.
+
+Docker commands (in 'aufgabe4_khoss' folder):
+docker compose build
+docker compose up
+
+The docker repo is automatically updated on evry push using github actions.
+For more informations, see .github/workflows/main.yml
+
+Note:
+Unfortunately, the image is 7GB big and therefore quite heavy.
+I was not able to reduce the size significantly.
+Also, the model is well over 200mb big, therefore, I will not upload it to moodle.
+
+Link to azure website:
+https://ds21m011-sentiment-analysis.azurewebsites.net
