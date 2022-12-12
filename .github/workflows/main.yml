@@ -31,11 +31,13 @@ jobs:
 #        push: true
 #        tags: index.docker.io/nkhoss/streamlit_app_ex4:${{ github.sha }}
 #        file: ./streamlit/Dockerfile
-    - name: publish to docker
-      uses: pennsignals/publish_docker-compose@v0.1.0
-      with:
-        docker_compose: 'docker-compose.yml' # required
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+    
+    - name: build and run container
+      run: docker compose up
+    - name: push to docker
+      run: docker compose push
+        
+        
        
     - name: Azure WebApp
       uses: Azure/webapps-deploy@v2.2.5
