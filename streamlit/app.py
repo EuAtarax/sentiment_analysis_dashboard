@@ -5,7 +5,7 @@ import utils
 st.set_option("deprecation.showfileUploaderEncoding", False)
 classifier = utils.get_classifier()
 
-st.title("Sentiment analysis web app")
+st.title("Sentiment analysis web app - Now with CI/CD")
 
 text = st.text_input("Enter English text to be analyzed.")
 
