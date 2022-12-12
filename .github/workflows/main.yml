@@ -1,0 +1,43 @@
+name: CI update docker and publish on azure
+on:
+  push:
+    branches: [ master ]
+
+jobs: 
+  build-and-deploy:
+    runs-on: 'ubuntu-latest'
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      
+    - name: Docker Login
+      # You may pin to the exact commit or the version.
+      # uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+      uses: docker/login-action@v2.1.0
+      with:
+        # Server address of Docker registry. If not set then will default to Docker Hub
+        # registry: https://index.docker.io/v1/
+        # Username used to log against the Docker registry
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        # Password or personal access token used to log against the Docker registry
+        password:  ${{ secrets.DOCKERHUB_PW }}
+        # Log out from the Docker registry at the end of a job
+        # logout: false
+      
+    - name: Build and push Docker images
+      uses: docker/build-push-action@v3.2.0
+      with:
+       push: true
+       tags: index.docker.io/nkhoss/streamlit_app_ex4:${{ github.sha }}
+       file: ./Dockerfile
+       
+    - name: Azure WebApp
+      uses: Azure/webapps-deploy@v2.2.5
+      with:
+        # Name of the Azure Web App
+        app-name: ds21m011-sentiment-analysis
+        # Applies to Web Apps(Windows and Linux) and Web App Containers(linux). Multi container scenario not supported. Publish profile (*.publishsettings) file contents with Web Deploy secrets
+        publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+        # Enter an existing Slot other than the Production slot
+        images: index.docker.io/nkhoss/streamlit_app_ex4:${{ github.sha }}
