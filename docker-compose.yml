@@ -2,7 +2,7 @@ version: '3'
 
 services:
   streamlit:
-    build: streamlit
+    build: .
     image: nkhoss/streamlit_app_ex4
     ports:
       - ${STREAMLIT_SERVER_PORT:-80}
