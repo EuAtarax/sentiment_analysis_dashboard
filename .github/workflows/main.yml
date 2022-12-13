@@ -47,4 +47,4 @@ jobs:
         # Applies to Web Apps(Windows and Linux) and Web App Containers(linux). Multi container scenario not supported. Publish profile (*.publishsettings) file contents with Web Deploy secrets
         publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
         # Enter an existing Slot other than the Production slot
-        images: index.docker.io/nkhoss/streamlit_app_ex4:${{ github.sha }}
+        images: index.docker.io/nkhoss/streamlit_app_ex4:latest
