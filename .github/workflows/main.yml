@@ -31,7 +31,7 @@ jobs:
       uses: docker/build-push-action@v3.2.0
       with:
        push: true
-       tags: index.docker.io/nkhoss/streamlit_app_ex4:${{ github.sha }}
+       tags: index.docker.io/nkhoss/streamlit_app_ex4:latest
        file: ./Dockerfile
     
 #    - name: build image
