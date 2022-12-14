@@ -6,6 +6,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 COPY . .
+RUN mkdir models
 RUN python3 download_model.py
 
 EXPOSE 80
