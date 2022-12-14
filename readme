@@ -9,6 +9,10 @@ Docker commands (in 'aufgabe4_khoss' folder):
 - docker compose up
 Beware, that an evironment variable "STREAMLIT_SERVER_PORT" needs to be set!
 
+Or via Dockerfile:
+- docker build -t sentiment_analysis .
+- docker run sentiment_analysis -p 80
+
 The docker repo is automatically updated on every push using github actions. This action may take up to 10 minutes.
 For more informations, see .github/workflows/main.yml
 

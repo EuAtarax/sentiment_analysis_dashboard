@@ -8,6 +8,7 @@ from segtok.segmenter import split_single
 # initializing the flair model
 @st.cache(allow_output_mutation=True)
 def get_classifier():
+    # classifier = TextClassifier.load('en-sentiment')
     classifier = TextClassifier.load("./models/sentiment-en-mix-distillbert_4.pt")
     return classifier
 
